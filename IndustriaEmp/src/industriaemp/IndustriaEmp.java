@@ -25,7 +25,7 @@ public class IndustriaEmp {
         Random random = new Random(); 
         
         String[] empresas = new String[15];
-        int [][] montos = new int[15][5];  
+        int [][] montos = new int[15][4];  
         int [] totalmontos = new int[15];  
         
         // Ingresar nombres de las empresas
@@ -36,8 +36,8 @@ public class IndustriaEmp {
             empresas[i] = scanner.nextLine();
         }
         
-        // Simulacion de los montos de  en 5 años
-        for (int año = 0; año < 5; año++){
+        // Simulacion de los montos de  en 4 años
+        for (int año = 0; año < 4; año++){
             for (int afiliado = 0; afiliado < 50; afiliado++){
                 int monto = random.nextInt(10);
                 montos[monto][año]++; 
@@ -45,52 +45,52 @@ public class IndustriaEmp {
         }
         boolean eleccion=true;
         do{
-                    // Mostrar la tabla de votos por cada candidato y ronda
-            System.out.println("Tabla de Votos:");
-            System.out.printf("%-25s", "Candidato");
-            for (int ronda = 1; ronda <= 5; ronda++) {
-                System.out.printf("%-10s", "Ronda " + ronda);
+             // Mostrar la tabla de votos por cada monto y año
+            System.out.println("Tabla de montos:");
+            System.out.printf("%-25s", "Empresa");
+            for (int año = 1; año <= 4; año++) {
+                System.out.printf("%-10s", "Año " + año);
             }
             System.out.println();
 
-            for (int candidato = 0; candidato < 10; candidato++) {
-                System.out.printf("%-25s", candidatos[candidato]);
-                for (int ronda = 0; ronda < 5; ronda++) {
-                    System.out.printf("%-10d", votos[candidato][ronda]);
+            for (int empresa = 0; empresa < 10; empresa++) {
+                System.out.printf("%-25s", empresas[empresa]);
+                for (int año = 0; año < 4; año++) {
+                    System.out.printf("%-10d", montos[empresa][año]);
                 }
                 System.out.println();
             }
 
-            // Calcular el candidato ganador y el que obtuvo menos votos
-            for (int candidato = 0; candidato < 10; candidato++) {
-                for (int ronda = 0; ronda < 5; ronda++) {
-                    totalVotos[candidato] += votos[candidato][ronda];
+            // Calcular la empresa mayor y la menor en montos
+            for (int empresa = 0; empresa < 15; empresa++) {
+                for (int año = 0; año < 4; año++) {
+                    totalmontos[empresa] += montos[empresa][año];
                 }
             }
 
-            // Encontrar el ganador y el que obtuvo menos votos
-            int ganador = 0;
-            int menosVotos = 0;
-            for (int candidato = 1; candidato < 10; candidato++) {
-                if (totalVotos[candidato] > totalVotos[ganador]) {
-                    ganador = candidato;
+            // Encontrar al mayoror y el menor en montos
+            int mayor = 0;
+            int menorMontos = 0;
+            for (int empresa = 1; empresa < 15; empresa++) {
+                if (totalmontos[empresa] > totalmontos[empresa]) {
+                    mayor = empresa;
                 }
-                if (totalVotos[candidato] < totalVotos[menosVotos]) {
-                    menosVotos = candidato;
+                if (totalmontos[empresa] < totalmontos[menorMontos]) {
+                    menorMontos = empresa;
                 }
             }
 
             // Mostrar resultados
-            System.out.println("\nEl candidato ganador es: " + candidatos[ganador]);
-            System.out.println("El candidato con menos votos es: " + candidatos[menosVotos]);  
+            System.out.println("\nLa Empresa con Mayor monto es: " + empresas[mayor]);
+            System.out.println("La Epresa con menor montos es: " + empresas[menorMontos]);  
             System.out.println();
-            System.out.println("Se repiten las elecciones?");
+            System.out.println("Se repiten las estadisticas?");
             String repetir = scanner.nextLine();
             eleccion= repetir.equalsIgnoreCase("Si") || repetir.equalsIgnoreCase("S") || repetir.equalsIgnoreCase("si");
         } while (eleccion);
         
         System.out.println("La votacion ha finalizado.");
-        System.out.println("Creditos: Favio, Wilber, Lety, David.");
+        System.out.println("Creditos: Carlos David Rojas Coronado.");
 
         
     }
