@@ -31,8 +31,8 @@ public class IndustriaEmp {
         // Ingresar nombres de las empresas
         System.out.println("Ingrese los nombres de las 15 empresas a ejemplificar :");
         System.out.println("");
-        for (int i = 0; i < 10; i++) {
-            System.out.print("Candidato " + (i + 1) + ": ");
+        for (int i = 0; i < 15; i++) {
+            System.out.print("Empresa " + (i + 1) + ": ");
             empresas[i] = scanner.nextLine();
         }
         
@@ -53,7 +53,7 @@ public class IndustriaEmp {
             }
             System.out.println();
 
-            for (int empresa = 0; empresa < 10; empresa++) {
+            for (int empresa = 0; empresa < 15; empresa++) {
                 System.out.printf("%-25s", empresas[empresa]);
                 for (int año = 0; año < 4; año++) {
                     System.out.printf("%-10d", montos[empresa][año]);
