@@ -38,14 +38,14 @@ public class IndustriaEmp {
         
         // Simulacion de los montos de  en 4 años
         for (int año = 0; año < 4; año++){
-            for (int afiliado = 0; afiliado < 50; afiliado++){
-                int monto = random.nextInt(10);
+            for (int afiliado = 10000; afiliado < 50000; afiliado++){
+                int monto = random.nextInt(15);
                 montos[monto][año]++; 
             }
         }
         boolean eleccion=true;
         do{
-             // Mostrar la tabla de votos por cada monto y año
+             // Mostrar la tabla de empresa por cada monto y año
             System.out.println("Tabla de montos:");
             System.out.printf("%-25s", "Empresa");
             for (int año = 1; año <= 4; año++) {
@@ -68,7 +68,7 @@ public class IndustriaEmp {
                 }
             }
 
-            // Encontrar al mayoror y el menor en montos
+            // Encontrar al mayor y el menor en montos
             int mayor = 0;
             int menorMontos = 0;
             for (int empresa = 1; empresa < 15; empresa++) {
